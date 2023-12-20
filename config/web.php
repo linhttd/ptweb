@@ -9,9 +9,16 @@ $config = [
     'bootstrap' => ['log'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
-    ],
+        '@npm' => '@vendor/npm-asset',
+        '@adminlte/widgets' => '@vendor/adminlte/yii2-widgets'],
     'components' => [
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                    '@app/views' => '@vendor/hail812/yii2-adminlte3/src/views'
+                ],
+            ],
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'n5c356VpP7C5XJPqnejOQRXTjV3r4_IT',
@@ -42,6 +49,11 @@ $config = [
             ],
         ],
         'db' => $db,
+        'cart' => [
+            'class' => 'yz\shoppingcart\ShoppingCart',
+            'cartId' => 'my_application_cart',
+        ],
+
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,
